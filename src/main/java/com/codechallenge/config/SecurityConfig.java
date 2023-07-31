@@ -37,7 +37,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> {
                     try {
-                        request.requestMatchers(antMatcher("/userInfo"),antMatcher("/salesforce/**"),antMatcher("/success"),antMatcher("/h2-console/**"),antMatcher("/signIn"),antMatcher("/initiate-auth"))
+                        request.requestMatchers(antMatcher("/userInfo"),antMatcher("/salesforce/**"),antMatcher("/swagger-ui.html/**"),antMatcher("/v3/api-docs/**"),antMatcher("/swagger-ui/**"),antMatcher("/h2-console/**"),antMatcher("/signIn"),antMatcher("/initiate-auth"))
                                 .permitAll().anyRequest().authenticated().and().headers().frameOptions().disable();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
